@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BLOCK GAME</title>
+    <style>
+      body {
+        font-family: system-ui;
+        background: #111;
+        color: #ddd;
+        padding-top: 32px;
+      }
+
+      #canvas {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .controls {
+        width: 220px;
+        margin: 20px auto 0;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 6px 16px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      kbd {
+        display: inline-block;
+        background: #2a2a2a;
+        border: 1px solid #555;
+        border-radius: 4px;
+        padding: 1px 7px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        color: #eee;
+      }
+
+      span {
+        color: #aaa;
+      }
+
+      #output {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <div class="controls">
+      <div><kbd>A</kbd> / <kbd>D</kbd></div><span>左右移動</span>
+      <div><kbd>S</kbd></div><span>ソフトドロップ</span>
+      <div><kbd>J</kbd> / <kbd>K</kbd></div><span>左回転 / 右回転</span>
+      <div><kbd>Space</kbd></div><span>スタート</span>
+      <div><kbd>R</kbd></div><span>リスタート</span>
+    </div>
+
+    <textarea id="output"></textarea>
+  </body>
+
+  <script>
+    var Module = {
+      canvas: (function() { return document.getElementById('canvas'); })(),
+      print: (function() {
+        var element = document.getElementById('output');
+        if (element) element.value = '';
+        return function(text) {
+          if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+          console.log(text);
+          if (element) {
+            element.value += text + "\n";
+            element.scrollTop = element.scrollHeight;
+          }
+        };
+      })()
+    };
+  </script>
+  <script async src="app.js"></script>
+</html>

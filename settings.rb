@@ -1,0 +1,20 @@
+GRID_SIZE     = 15
+GRID_COLS     = 10
+GRID_ROWS     = 20
+PANEL_COLS    = 7
+
+SCREEN_WIDTH  = GRID_SIZE * (1 + GRID_COLS + 1 + PANEL_COLS)  # 左壁 + ボード + 右壁 + パネル
+SCREEN_HEIGHT = GRID_SIZE * (GRID_ROWS + 1)                    # ボード + 下壁
+
+FALL_INTERVAL       = 60
+SOFT_DROP_INTERVAL  = 6
+LINES_PER_LEVEL     = 10
+FLASH_DURATION      = 60
+FLASH_INTERVAL      = 6
+LOCK_DELAY          = 30
+DAS                 = 10
+ARR                 = 2
+
+BOARD_OFFSET_X = GRID_SIZE
+BOARD_OFFSET_Y = 0
+PANEL_OFFSET_X = GRID_SIZE * (1 + GRID_COLS + 1)
