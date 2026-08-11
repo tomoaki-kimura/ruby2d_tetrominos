@@ -38,3 +38,8 @@ task :wasm do
   FileUtils.cp "web/index.html", "build/web/app.html"
   puts "Template applied → build/web/app.html"
 end
+
+task :serve do
+  puts "Serving at http://localhost:8080/app.html"
+  sh "python3 -m http.server 8080 --directory build/web"
+end
