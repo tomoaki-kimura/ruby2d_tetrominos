@@ -1,0 +1,3 @@
+- bundle exec rake — ゲーム起動
+- bundle exec rake wasm — WASM ビルド（.bundle/ にバンドル → build/web/ に出力）
+- bundle exec rake serve — ローカルで動作確認
